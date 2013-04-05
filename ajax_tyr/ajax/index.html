@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <title>Ejemplo en AJAX</title>
+        
+        <script>
+        
+            function peticion_ajax() {
+                
+                // Instancia de un objeto ajax (No funcion en versiones anteriores a IE7)
+                xmlhttp=new XMLHttpRequest();
+                
+                // Configuramos al objeto para que trabaje de forma asincronica
+                xmlhttp.onreadystatechange = function() {
+                    
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                        
+                        document.getElementById("div_prueba").innerHTML=xmlhttp.responseText;
+                        
+                    }
+                    
+                }
+                
+                // Armamos la peticion
+                xmlhttp.open("GET","server.php",true);
+                // Se envia la peticion
+                xmlhttp.send();
+                
+            }
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="div_prueba">
+            
+            <h2>Presionar el boton</h2>
+            
+        </div>
+        
+        <!-- Boton que dispara la peticion via ajax cuando se dispara el evento onclick -->
+        <button type="button" onclick="peticion_ajax()">Peticion!</button>
+        
+        <p>Ejemplo extraido de http://www.w3schools.com/ajax/ - TyR 2013</p>
+        
+    </body>
+    
+</html> 

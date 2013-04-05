@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">﻿
+        
+        <title>Ejemplo en AJAX - Ahora con Jquery</title>
+        
+        <!-- Cargamos la libreria jquery -->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        
+        <script>
+            
+            function peticion_ajax() {
+                
+                $.get("server.php",function(data,status){
+                    
+                    $('#div_prueba').html(data);
+                    
+                });
+                
+            }
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="div_prueba">
+            
+            <h2>Presionar el boton</h2>
+            
+        </div>
+        
+        <input id="boton" type="button" value="Peticion!" />
+        
+        <p>Ejemplo extraido de http://www.w3schools.com/ajax/ - TyR 2013</p>
+        
+        <script>
+            
+            $("#boton").click(function(){
+                
+                peticion_ajax();
+                
+            });
+            
+        </script>
+        
+    </body>
+    
+</html> 

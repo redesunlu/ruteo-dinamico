@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">﻿
+        
+        <title>Ejemplo en AJAX</title>
+        
+        <!-- Cargamos la libreria jquery -->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        
+        <script>
+            
+            function peticion_ajax() {
+                
+                // Nos fijamos si hay parametros
+                informacion_para_enviar = $("#parametro").val();
+                
+                if ( informacion_para_enviar ) {
+                    
+                    // si hay parametros, los enviamos
+                    
+                    $.get("server.php", { parametro: informacion_para_enviar }, function(data,status){
+                        
+                        $('#div_prueba').html(data);
+                        
+                    });
+                    
+                } else {
+                    
+                    // Si no hay parametros, enviamos la consulta como en el primer ejemplo
+                    $.get("server.php", function(data,status){
+                        
+                        $('#div_prueba').html(data);
+                        
+                    });
+                    
+                }
+                
+            }
+            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="div_prueba">
+            
+            <h2>Presionar el boton</h2>
+            
+        </div>
+        
+        <p>Decile algo al servidor: </p>
+        
+        <input id="parametro" /><br />
+        
+        <input id="boton" type="button" value="Peticion!" />
+        
+        <p>Ejemplo extraido de http://www.w3schools.com/ajax/ - TyR 2013</p>
+        
+        <script>
+            
+            $("#boton").click(function(){
+                
+                peticion_ajax();
+                
+            });
+            
+        </script>
+        
+    </body>
+    
+</html> 
