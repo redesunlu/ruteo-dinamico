@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">﻿
+        
+        <title>Ejemplo de GET</title>
+        
+    </head>
+    
+    <body>
+        
+        <h3>Enviar datos por get al servidor</h3>
+        
+        <form action="server.php" method="get">
+            Usuario: <input type="text" name="usuario" />
+            Password: <input type="password" name="contrasena" />
+            <input type="submit" value="Login" />
+        </form>
+        
+        <hr>
+        
+        <h3>Buscar en Google</h3>
+        
+        <form action="http://google.com/search" method="get">
+            <label for="q">Consulta: </label><input id="q" type="text" name="q" />
+            <input type="hidden" name="hl" value="en" />
+            <input type="hidden" name="source" value="hp" />
+            <input type="hidden" name="biw" value="1422" />
+            <input type="hidden" name="bih" value="755" />
+            <input type="hidden" name="aq" value="f" />
+            <input type="hidden" name="aqi" value="g10" />
+            <input type="hidden" name="aql" value="" />
+            <input type="hidden" name="oq" value="" />
+            <input type="hidden" name="safe" value="strict" />
+        </form>
+        
+        <p>Ejemplo basico de GET - TyR 2013</p>
+        
+        <a href="..">Volver</a>
+        
+    </body>
+    
+</html> 
