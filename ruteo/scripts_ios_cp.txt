@@ -1,0 +1,179 @@
+################################################################################
+##########      Ruteo en Dynamips       ########################################
+################################################################################
+
+# Scripts para Copy&Paste (para vagos)
+
+############################
+#   Configuracion Basica   #
+############################
+
+Router 1
+########
+
+enable
+configure terminal
+hostname R1
+interface FastEthernet0/0
+ip address 192.168.2.1 255.255.255.252
+no shutdown
+exit
+interface FastEthernet0/1
+ip address 192.168.1.1 255.255.255.252
+no shutdown
+exit
+interface FastEthernet1/0
+ip address 192.168.4.1 255.255.255.252
+no shutdown
+exit
+
+Router 2
+########
+
+enable
+configure terminal
+hostname R2
+interface FastEthernet0/0
+ip address 192.168.3.1 255.255.255.252
+no shutdown
+exit
+interface FastEthernet0/1
+ip address 192.168.1.2 255.255.255.252
+no shutdown
+exit
+
+Router 3
+########
+
+enable
+configure terminal
+hostname R3
+interface FastEthernet0/0
+ip address 192.168.2.2 255.255.255.252
+no shutdown
+exit
+interface FastEthernet0/1
+ip address 192.168.3.2 255.255.255.252
+no shutdown
+exit
+
+Router 4
+########
+
+enable
+configure terminal
+hostname R4
+interface FastEthernet0/0
+ip address 192.168.4.2 255.255.255.252
+no shutdown
+exit
+
+#####################################
+#   Configuracion de ruteo: RIPv1   #
+#####################################
+
+Router 1
+########
+
+router rip
+network 192.168.1.0
+network 192.168.2.0
+network 192.168.4.0
+
+Router 2
+########
+
+router rip
+network 192.168.1.0
+network 192.168.3.0
+
+Router 3
+########
+
+router rip
+network 192.168.2.0
+network 192.168.3.0
+
+Router 4
+########
+
+router rip
+network 192.168.4.0
+
+#####################################
+#   Configuracion de ruteo: RIPv2   #
+#####################################
+
+Router 1
+########
+
+router rip
+version 2
+network 192.168.1.0
+network 192.168.2.0
+network 192.168.4.0
+
+Router 2
+########
+
+router rip
+version 2
+network 192.168.1.0
+network 192.168.3.0
+
+Router 3
+########
+
+router rip
+version 2
+network 192.168.2.0
+network 192.168.3.0
+
+Router 4
+########
+
+router rip
+version 2
+network 192.168.4.0
+
+####################################
+#   Configuracion de ruteo: OSPF   #
+####################################
+
+Router 1
+########
+
+router ospf 1
+network 192.168.1.0 0.0.0.3 area 0
+network 192.168.2.0 0.0.0.3 area 0
+network 192.168.4.0 0.0.0.3 area 0
+
+Router 2
+########
+
+router ospf 1
+network 192.168.1.0 0.0.0.3 area 0
+network 192.168.3.0 0.0.0.3 area 0
+
+Router 3
+########
+
+router ospf 1
+network 192.168.2.0 0.0.0.3 area 0
+network 192.168.3.0 0.0.0.3 area 0
+
+Router 4
+########
+
+router ospf 1
+network 192.168.4.0 0.0.0.3 area 0
+
+#######################
+#   Comandos utiles   #
+#######################
+
+enable                         (Pasa a modo administrador)
+show ip route                  (Tabla de rutas)
+show ip interface brief        (Interfaces e IPs)
+copy run start                 (VM -> file)
+copy start run                 (file -> VM)
