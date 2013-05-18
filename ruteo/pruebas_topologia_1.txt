@@ -3,7 +3,7 @@
 #############
 
 R1 <----> R2 <----> R3
-	NET1	  NET2
+    NET1      NET2
 
 NET1: 192.168.2.0/30
 	R1: 192.168.2.1
@@ -16,7 +16,7 @@ NET2: 192.168.1.0/30
 # TABLAS DE RUTAS #
 ###################
 
-Antes de cerrar conexion en NET2:
+*** Antes de cerrar conexion en NET2 ***
 
 ######
 # R1 #
@@ -76,7 +76,10 @@ Gateway of last resort is not set
 C       192.168.1.0 is directly connected, FastEthernet0/0
 R    192.168.2.0/24 [120/1] via 192.168.1.1, 00:00:18, FastEthernet0/0
 
-Despues de cortar link en NET2
+
+
+
+*** Despues de cortar link en NET2 ***
 
 ######
 # R1 #
