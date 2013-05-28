@@ -1,10 +1,12 @@
 Scripts para CISCO IOS
 
-Realizado con Dynamips
+Realizado con Dynamips GNS3
 
-La estructura logica de la red se encuentra en topologia.png
+La estructura logica de la red se encuentra en topologia.png. 
+Tambien se provee el archivo topology.net que contiene la topologia lista 
+para ser usada en GNS3.
 
-Procedimiento: 
+Procedimiento:
 
 1) crear en GNS3 la estructura de Routers propuesta en la topologia
     Tipo de Router: c2600

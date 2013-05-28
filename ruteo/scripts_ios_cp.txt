@@ -107,34 +107,50 @@ network 192.168.4.0
 Router 1
 ########
 
+enable
+configure terminal
 router rip
 version 2
 network 192.168.1.0
 network 192.168.2.0
 network 192.168.4.0
+exit
+exit
 
 Router 2
 ########
 
+enable
+configure terminal
 router rip
 version 2
 network 192.168.1.0
 network 192.168.3.0
+exit
+exit
 
 Router 3
 ########
 
+enable
+configure terminal
 router rip
 version 2
 network 192.168.2.0
 network 192.168.3.0
+exit
+exit
 
 Router 4
 ########
 
+enable
+configure terminal
 router rip
 version 2
 network 192.168.4.0
+exit
+exit
 
 ####################################
 #   Configuracion de ruteo: OSPF   #
