@@ -1,0 +1,51 @@
+################################################################################
+##########      Ruteo en Dynamips       ########################################
+################################################################################
+
+Configuraciones ruteo dinamico con RIPv2
+
+#####################################
+#   Configuracion de ruteo: RIPv2   #
+#####################################
+
+Router 1
+########
+
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.1.0
+(config-router)# network 192.168.2.0
+(config-router)# network 192.168.4.0
+
+Router 2
+########
+
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.1.0
+(config-router)# network 192.168.3.0
+
+Router 3
+########
+
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.2.0
+(config-router)# network 192.168.3.0
+
+Router 4
+########
+
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.4.0
+
+#######################
+#   Comandos utiles   #
+#######################
+
+>enable                         (Pasa a modo administrador)
+#show ip route                  (Tabla de rutas)
+#show ip interface brief        (Interfaces e IPs)
+#copy run start                 (VM -> file)
+#copy start run                 (file -> VM)

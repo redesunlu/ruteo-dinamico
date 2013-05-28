@@ -1,0 +1,40 @@
+Cuestiones:
+
+Calculo de la wildcard:
+	
+	255 . 255 . 255 . 255 (Mascara de red "completa")
+   -
+	255 . 255 . 255 . 252 (Mascara de red de la red a calcular la wildcard)
+   -----------------------
+     0  .  0  .  0  .  3
+
+Areas: Al menos debe existir un area 0. Pueden o no existir sub areas, 
+principalmente para facilitar tareas de administracion en Sistemas Autonomos 
+grandes. Area 0 = Area Backbone o area principal.
+
+224.0.0.9 es la direccion Multicast de todo router que esten ejecutando RIPv2
+para un mismo segmento de red.
+
+Gateway of last resort is not set: Nos avisa que no se encuentra seteado
+el default gateway en el ruteador. A modo de ejemplo, para hacerlo el comando
+seria
+	
+	ip route 0.0.0.0 0.0.0.0 <ip_default_gateway>
+
+Cuando se ejecuta el comando show ip route, se muestran dos numeros entre
+corchetes, de esta forma
+
+	[120/1]
+	
+	donde
+	
+	120: Es la distancia administrativa que un router cisco le asigna a
+		un ruteador por defecto con RIP. De cara al exterior del SA?
+		
+	1: La metrica para alcanzar esa red (Cantidad de ruteadores hasta dicha 
+		red, por ejemplo). Dentro del SA?
+
+Dudas de la captura:
+
+	El R1 genera muchos mas Responses que R4. Porque?
+	Anterior termino en 142. Mirar despues de ese.
