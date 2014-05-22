@@ -32,8 +32,8 @@ Consigna
 
 Construir topologías de ejemplo en GNS3 para probar la forma de configuración y resultados de protocolos de ruteo dinámico. Los ejemplos para implementar son dos:
 
-- [RipV2](README_RIPv2.md)
-- [OSPF](README_OSPF.md)
+- RipV2
+- OSPF
 
 La estructura lógica de la red se encuentra en `topologia.png` en cada uno de los ejemplos. 
 
