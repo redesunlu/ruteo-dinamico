@@ -63,6 +63,17 @@ Para hacerlo de forma manual para un Router dado, hay que seguir el siguiente pr
 
 **NOTA: Hay que confirmar que todo se ha hecho satisfactoriamente, sino, puede que haya problemas de permisos sobre los archivos (Y no muestra errores, pero los archivos no contienen ningún comando).**
 
+Comandos útiles
+---------------
+
+```
+>enable                         (Pasa a modo administrador)
+#show ip route                  (Muestra la tabla de rutas)
+#show ip interface brief        (Muesta las interfaces e IPs)
+#copy run start                 (VM -> file - Configuración)
+#copy start run                 (file -> VM - Configuración)
+```
+
 Apuntes y Dudas
 ---------------
 
