@@ -1,6 +1,6 @@
-# Funcionamiento de OSPF en Routers CISCO
+# Funcionamiento de RIP (version 2) en Routers CISCO
 
-Pasos para el diseño y configuracion de una topologia.
+Pasos para el diseño y configuracion de una topologia que implemente la version 2 del protocolo RIP.
 
 ## Topologia
 
@@ -188,38 +188,42 @@ Gateway of last resort is not set
 C       192.168.4.0 is directly connected, FastEthernet0/0
 ```
 
-**7.** Ejecutar las configuraciones provistas a continuacion para iniciar el protocolo `OSPF` en los router:
+**7.** Ejecutar las configuraciones provistas a continuacion para iniciar el protocolo `RIPv2` en los router:
 
 #### Router 1
 
 ```
-(config)#router ospf 1
-(config-router)# network 192.168.1.0 0.0.0.3 area 0
-(config-router)# network 192.168.2.0 0.0.0.3 area 0
-(config-router)# network 192.168.4.0 0.0.0.3 area 0
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.1.0
+(config-router)# network 192.168.2.0
+(config-router)# network 192.168.4.0
 ```
 
 #### Router 2
 
 ```
-(config)#router ospf 1
-(config-router)# network 192.168.1.0 0.0.0.3 area 0
-(config-router)# network 192.168.3.0 0.0.0.3 area 0
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.1.0
+(config-router)# network 192.168.3.0
 ```
 
 #### Router 3
 
 ```
-(config)#router ospf 1
-(config-router)# network 192.168.2.0 0.0.0.3 area 0
-(config-router)# network 192.168.3.0 0.0.0.3 area 0
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.2.0
+(config-router)# network 192.168.3.0
 ```
 
 #### Router 4
 
 ```
-(config)#router ospf 1
-(config-router)# network 192.168.4.0 0.0.0.3 area 0
+(config)#router rip
+(config-router)# version 2
+(config-router)# network 192.168.4.0
 ```
 
 **8.** Luego de un tiempo (Esperando que el algoritmo converja), volver a consultar las tablas de rutas de los routers `R2` y `R4`. Observar las nuevas filas en la salida del comando.
@@ -238,12 +242,11 @@ Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
 
 Gateway of last resort is not set
 
-	 192.168.4.0/30 is subnetted, 1 subnets
-O       192.168.4.0 [110/2] via 192.168.1.1, 00:01:24, FastEthernet0/1
+R    192.168.4.0/24 [120/1] via 192.168.1.1, 00:00:28, FastEthernet0/1
 	 192.168.1.0/30 is subnetted, 1 subnets
 C       192.168.1.0 is directly connected, FastEthernet0/1
-	 192.168.2.0/30 is subnetted, 1 subnets
-O       192.168.2.0 [110/2] via 192.168.1.1, 00:01:24, FastEthernet0/1
+R    192.168.2.0/24 [120/1] via 192.168.3.2, 00:00:23, FastEthernet0/0
+					[120/1] via 192.168.1.1, 00:00:28, FastEthernet0/1
 	 192.168.3.0/30 is subnetted, 1 subnets
 C       192.168.3.0 is directly connected, FastEthernet0/0
 ```
@@ -264,10 +267,7 @@ Gateway of last resort is not set
 
 	 192.168.4.0/30 is subnetted, 1 subnets
 C       192.168.4.0 is directly connected, FastEthernet0/0
-	 192.168.1.0/30 is subnetted, 1 subnets
-O       192.168.1.0 [110/2] via 192.168.4.1, 00:01:53, FastEthernet0/0
-	 192.168.2.0/30 is subnetted, 1 subnets
-O       192.168.2.0 [110/2] via 192.168.4.1, 00:01:53, FastEthernet0/0
-	 192.168.3.0/30 is subnetted, 1 subnets
-O       192.168.3.0 [110/3] via 192.168.4.1, 00:01:53, FastEthernet0/0
+R    192.168.1.0/24 [120/1] via 192.168.4.1, 00:00:18, FastEthernet0/0
+R    192.168.2.0/24 [120/1] via 192.168.4.1, 00:00:18, FastEthernet0/0
+R    192.168.3.0/24 [120/2] via 192.168.4.1, 00:00:18, FastEthernet0/0
 ```
