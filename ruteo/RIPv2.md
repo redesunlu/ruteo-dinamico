@@ -1,10 +1,10 @@
-# Funcionamiento de RIP (version 2) en Routers CISCO
+# Funcionamiento de RIP (versión 2) en Routers CISCO
 
-Pasos para el diseño y configuracion de una topologia que implemente la version 2 del protocolo RIP.
+Pasos para el diseño y configuración de una topología que implemente la versión 2 del protocolo RIP.
 
-## Topologia
+## Topología
 
-![Topologia](http://i.imgur.com/csA8Mha.png)
+![Topología](http://i.imgur.com/csA8Mha.png)
 
 ## Diseño de la red
 
@@ -72,9 +72,9 @@ Router R4
     IP: 192.168.4.2
 ```
 
-## Pasos para la configuracion
+## Pasos para la configuración
 
-**1.** Crear en GNS3 la topologia propuesta con las siguientes especificaciones: Tipo de Router -> `c2600`; Tipo de enlace -> `FastEthernet`
+**1.** Crear en GNS3 la topología propuesta con las siguientes especificaciones: Tipo de Router -> `c2600`; Tipo de enlace -> `FastEthernet`
 
 **2.** Iniciar todos los dispositivos y aplicar un valor de Idle PC para mejorar el rendimiento.
 
@@ -82,7 +82,7 @@ Router R4
 
 **4.** Abrir una consola en cada Router. En cada una, presionar `Enter`, Responder `no` a la pregunta inicial y esperar hasta que aparezca el prompt `Router>`.
 
-**5.** En la consola de cada Router, ejecutar las siguientes configuraciones correspondientes para crear la topologia diseñada anteriormente:
+**5.** En la consola de cada Router, ejecutar las siguientes configuraciones correspondientes para crear la topología diseñada anteriormente:
 
 #### Router 1
 

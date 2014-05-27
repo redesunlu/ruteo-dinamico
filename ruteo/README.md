@@ -69,7 +69,7 @@ Comandos útiles
 ```
 >enable                         (Pasa a modo administrador)
 #show ip route                  (Muestra la tabla de rutas)
-#show ip interface brief        (Muesta las interfaces e IPs)
+#show ip interface brief        (Muestra las interfaces e IPs)
 #copy run start                 (VM -> file - Configuración)
 #copy start run                 (file -> VM - Configuración)
 ```
@@ -97,7 +97,7 @@ grandes. Área 0 = Área Backbone o área principal.
 
 224.0.0.9 es la dirección Multicast de todo router que estén ejecutando RIPv2 para un mismo segmento de red.
 
-### Gateway of last resort is not set ###
+### Gateway of last resort is not set
 
 Este mensaje avisa que no se encuentra seteado el default gateway en el ruteador. A modo de ejemplo, para hacerlo el comando seria:
 

@@ -1,17 +1,16 @@
-Ejemplos
-========
+# Ejemplos
 
-En este documento se mostraran ejemplos de la configuracion de una topologia de 4 routers, y los comandos para configurar algunos protocolos de ruteo dinamico.
+En este documento se mostraran ejemplos de la configuración de una topología de 4 routers, y los comandos para configurar algunos protocolos de ruteo dinámico.
 
-## Topologia ##
+## Topología
 
-Se propone la siguiente topologia para los ejemplos:
+Se propone la siguiente topología para los ejemplos:
 
-![Topologia](http://i.imgur.com/csA8Mha.png)
+![Topología](http://i.imgur.com/csA8Mha.png)
 
-##   Parametros de red   ##
+##   Parámetros de red
 
-### Red 1 ###
+### Red 1
 ```
 Red: 192.168.1.0/30
 Netmask: 255.255.255.252
@@ -25,7 +24,7 @@ Router R2
     Interface: f0/1
     IP: 192.168.1.2
 ```
-### Red 2 ###
+### Red 2
 ```
 Red: 192.168.2.0/30
 Netmask: 255.255.255.252
@@ -39,7 +38,7 @@ Router R3
     Interface: f0/0
     IP: 192.168.2.2
 ```
-### Red 3 ###
+### Red 3
 ```
 Red: 192.168.3.0/30
 Netmask: 255.255.255.252
@@ -53,7 +52,7 @@ Router R3
     Interface: f0/1
     IP: 192.168.3.2
 ```
-### Red 4 ###
+### Red 4
 ```
 Red: 192.168.4.0/30
 Netmask: 255.255.255.252
@@ -68,9 +67,9 @@ Router R4
     IP: 192.168.4.2
 ```
 
-##   Configuracion Basica   ##
+##   Configuración Básica   ##
 
-### Router 1 ###
+### Router 1
 
 ```
 Router>enable
@@ -90,7 +89,7 @@ R1(config-if)#no shutdown
 R1(config-if)#exit
 ```
 
-### Router 2 ###
+### Router 2
 
 ```
 Router>enable
@@ -106,7 +105,7 @@ R2(config-if)#no shutdown
 R2(config-if)#exit
 ```
 
-### Router 3 ###
+### Router 3
 
 ```
 Router>enable
@@ -122,7 +121,7 @@ R3(config-if)#no shutdown
 R3(config-if)#exit
 ```
 
-### Router 4 ###
+### Router 4
 
 ```
 Router>enable
@@ -134,11 +133,11 @@ R4(config-if)#no shutdown
 R4(config-if)#exit
 ```
 
-##   Configuracion de ruteo  ##
+## Configuración de ruteo
 
-### RIPv1 ###
+### RIPv1
 
-#### Router 1 ####
+#### Router 1
 
 ```
 (config)#router rip
@@ -147,7 +146,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.4.0
 ```
 
-#### Router 2 ####
+#### Router 2 
 
 ```
 (config)#router rip
@@ -155,7 +154,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0
 ```
 
-#### Router 3 ####
+#### Router 3
 
 ```
 (config)#router rip
@@ -163,16 +162,16 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0
 ```
 
-#### Router 4 ####
+#### Router 4
 
 ```
 (config)#router rip
 (config-router)# network 192.168.4.0
 ```
 
-### RIPv2 ###
+### RIPv2
 
-#### Router 1 ####
+#### Router 1
 
 ```
 (config)#router rip
@@ -182,7 +181,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.4.0
 ```
 
-#### Router 2 ####
+#### Router 2
 
 ```
 (config)#router rip
@@ -191,7 +190,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0
 ```
 
-#### Router 3 ####
+#### Router 3
 
 ```
 (config)#router rip
@@ -200,7 +199,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0
 ```
 
-#### Router 4 ####
+#### Router 4
 
 ```
 (config)#router rip
@@ -208,9 +207,9 @@ R4(config-if)#exit
 (config-router)# network 192.168.4.0
 ```
 
-### OSPF ###
+### OSPF
 
-#### Router 1 ####
+#### Router 1
 
 ```
 (config)#router ospf 1
@@ -219,7 +218,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.4.0 0.0.0.3 area 0
 ```
 
-#### Router 2 ####
+#### Router 2
 
 ```
 (config)#router ospf 1
@@ -227,7 +226,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0 0.0.0.3 area 0
 ```
 
-#### Router 3 ####
+#### Router 3
 
 ```
 (config)#router ospf 1
@@ -235,7 +234,7 @@ R4(config-if)#exit
 (config-router)# network 192.168.3.0 0.0.0.3 area 0
 ```
 
-#### Router 4 ####
+#### Router 4
 
 ```
 (config)#router ospf 1
