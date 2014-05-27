@@ -9,7 +9,6 @@ Se propone la siguiente topologia para los ejemplos:
 
 ![Topologia](http://i.imgur.com/csA8Mha.png)
 
-
 ##   Parametros de red   ##
 
 ### Red 1 ###

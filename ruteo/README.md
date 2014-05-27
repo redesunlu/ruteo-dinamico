@@ -19,7 +19,7 @@ Se dispone de dos ejemplos:
 Instalación
 -----------
 
-### En Ubuntu y Debian ###
+### En Ubuntu y Debian
  
 ```
 # apt-get install gns3
@@ -77,7 +77,7 @@ Comandos útiles
 Apuntes y Dudas
 ---------------
 
-### Calculo de la wildcard ###
+### Calculo de la wildcard
 
 ```
 	255 . 255 . 255 . 255 (Mascara de red "completa")
@@ -87,13 +87,13 @@ Apuntes y Dudas
      0  .  0  .  0  .  3
 ```
 
-### Áreas ###
+### Áreas
 
 Al menos debe existir un área 0. Pueden o no existir sub áreas, 
 principalmente para facilitar tareas de administración en Sistemas Autónomos 
 grandes. Área 0 = Área Backbone o área principal.
 
-### 224.0.0.9 ###
+### 224.0.0.9
 
 224.0.0.9 es la dirección Multicast de todo router que estén ejecutando RIPv2 para un mismo segmento de red.
 
@@ -105,7 +105,7 @@ Este mensaje avisa que no se encuentra seteado el default gateway en el ruteador
 ip route 0.0.0.0 0.0.0.0 <ip_default_gateway>
 ```
 
-### ip route ###
+### ip route
 
 Cuando se ejecuta el comando `show ip route`, se muestran dos números entre
 corchetes, de esta forma `[120/1]` donde:
