@@ -1,0 +1,124 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10000
+    [[2621]]
+        image = /home/tomas/Desktop/c2600-ipbase-mz.124-25b.image
+        idlepc = 0x802a8d98
+        sparsemem = True
+        ghostios = True
+        chassis = 2621
+    [[ROUTER R4]]
+        model = 2621
+        console = 2020
+        aux = 2520
+        cnfg = configs/R4.cfg
+        f0/0 = R1 f1/0
+        x = 98.5218613006
+        y = -190.291413922
+        z = 1.0
+    [[ROUTER R1]]
+        model = 2621
+        console = 2017
+        aux = 2517
+        cnfg = configs/R1.cfg
+        f0/0 = R3 f0/0
+        f0/1 = R2 f0/1
+        slot1 = NM-1FE-TX
+        f1/0 = R4 f0/0
+        x = -187.149278299
+        y = -190.291413922
+        z = 1.0
+    [[ROUTER R2]]
+        model = 2621
+        console = 2018
+        aux = 2518
+        cnfg = configs/R2.cfg
+        f0/0 = R3 f0/1
+        f0/1 = R1 f0/1
+        x = -35.8284271247
+        y = 9.11269837219
+        z = 1.0
+    [[ROUTER R3]]
+        model = 2621
+        console = 2019
+        aux = 2519
+        cnfg = configs/R3.cfg
+        f0/0 = R1 f0/0
+        f0/1 = R2 f0/0
+        x = -329.984848098
+        y = 9.11269837219
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    m11 = 0.707106781187
+    m22 = 0.707106781187
+    [[NOTE 1]]
+        text = "192.168.4.0"
+        x = -56.5685424949
+        y = -197.761976671
+        color = "#313739"
+    [[NOTE 2]]
+        text = "192.168.3.0/30"
+        x = -210.717820793
+        y = 3.05634918609
+        color = "#313739"
+    [[NOTE 3]]
+        text = "192.168.2.0/30"
+        x = -350.724963468
+        y = -86.0391052434
+        color = "#313739"
+    [[NOTE 4]]
+        text = "192.168.1.0/30"
+        x = -67.8822509939
+        y = -90.2817459305
+        color = "#313739"
+    [[NOTE 5]]
+        text = "f0/0"
+        x = -31.0353446323
+        y = 28.365962655
+        interface = R4 f0/0
+        color = "#313739"
+    [[NOTE 6]]
+        text = "f0/1"
+        x = 72.9871876999
+        y = 23.0123338658
+        interface = R3 f0/1
+        color = "#313739"
+    [[NOTE 7]]
+        text = "f0/0"
+        x = 56.2931386426
+        y = -10.5181440457
+        interface = R3 f0/0
+        color = "#313739"
+    [[NOTE 8]]
+        text = "f0/1"
+        x = 5.83562986902
+        y = -7.36148830334
+        interface = R2 f0/1
+        color = "#313739"
+    [[NOTE 9]]
+        text = "f0/0"
+        x = -6.98718769986
+        y = 20.9876661342
+        interface = R2 f0/0
+        color = "#313739"
+    [[NOTE 10]]
+        text = "f1/0"
+        x = 72.993714072
+        y = 21.2908915945
+        interface = R1 f1/0
+        color = "#313739"
+    [[NOTE 11]]
+        text = "f0/1"
+        x = 60.164370131
+        y = 51.3614883033
+        interface = R1 f0/1
+        color = "#313739"
+    [[NOTE 12]]
+        text = "f0/0"
+        x = 9.70686135736
+        y = 54.5181440457
+        interface = R1 f0/0
+        color = "#313739"

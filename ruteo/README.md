@@ -113,3 +113,62 @@ corchetes, de esta forma `[120/1]` donde:
 - 120: Es la distancia administrativa que un router cisco le asigna a un ruteador por defecto con RIP.
 - 1: La métrica para alcanzar esa red (Cantidad de ruteadores hasta dicha  red, por ejemplo).
 
+GNS3 Tips
+---------
+
+### Idioma
+
+Realizando las practicas se ha notado que usar el GNS3 en castellano hace que la aplicacion sea inestable. No se han buscado los motivos y si existen parches, pero lo recomendable es usarla en idioma ingles.
+
+### Iniciar gran cantidad de Routers
+
+GNS3 tiene una opcion de iniciar todos los routers de una topologia que estemos trabajando. Por defecto, esto genera una sobrecarga en la aplicacion y hay que reiniciarla para que vuelva a funcionar. 
+
+Una solucion para no tener que iniciar los Routers de forma individual fue ir a `Edit -> Preferences -> General -> General Settings (Tab) -> Delay between each device start... (Option)` y setear dicho valor a uno mas alto. 
+
+Las pruebas con 5 segundos fueron satisfactorias en nuestro caso.
+
+### Paths de las imagenes de IOS
+
+En algunos casos se comprobo que si las imagenes de SO a virtualizar estan en un path muy largo o con caracteres, las maquinas virtuales no bootean. El consejo es poner la Imagen del IOS en un path sencillo y sin caracteres extraños (Que no contengan acentos, espacios, etc...)
+
+### Wireshark crash
+
+Dependiendo de las versiones, a veces Wireshark se puede volver inestable. Eso hace que trabajar con las capturas se vuelva problematico (GNS se integra con wireshark).
+
+En general, si ocurre eso tambien sucede que si ejecutamos en una terminal wireshark (Sin ser superusuario), ademas de iniciarse la interfaz, por consola vemos una salida similar a la siguiente luego de trabajar un rato:
+
+```
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GtkScrollbar'
+
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GtkWidget'
+
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GObject'
+
+(wireshark:7672): GLib-GObject-CRITICAL **: g_object_get_qdata: assertion 'G_IS_OBJECT (object)' failed
+
+(wireshark:7672): Gtk-CRITICAL **: gtk_widget_set_name: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GObject'
+
+(wireshark:7672): GLib-GObject-CRITICAL **: g_object_set_qdata_full: assertion 'G_IS_OBJECT (object)' failed
+
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GtkRange'
+
+(wireshark:7672): Gtk-CRITICAL **: gtk_range_get_adjustment: assertion 'GTK_IS_RANGE (range)' failed
+
+(wireshark:7672): GLib-GObject-WARNING **: invalid unclassed pointer in cast to 'GtkOrientable'Killed
+```
+
+Para el momento que los mensajes anteriores aparecen, ya no se puede trabajar con la interfaz de Wireshark. Cerrar wireshark, y ejecutar el siguiente comando: `export LIBOVERLAY_SCROLLBAR=0`.
+
+Luego, en la misma consola ejecutar el wireshark, y probar que luego de un tiempo no vuelven a salir los mensajes. 
+
+Confirmado lo anterior, hay que lograr que cuando GNS3 ejecute wireshark, ademas establezca la variable de entorno.
+
+Ir a `Edit` -> `Preferences` -> `Capture` -> `Command to launch Wireshark...` y cambiar el contenido por lo siguiente: `(export LIBOVERLAY_SCROLLBAR=0 && wireshark %c)`
+
+Esta solución es una integración propia de lo encontrado en los siguientes hilos:
+ * [AskUbuntu](http://askubuntu.com/questions/413449/ubuntu-13-10-wireshark-crashes-at-start-of-capture-with-segfault-unless-ran-as-r)
+ * [StackOverflow](http://stackoverflow.com/questions/10856129/setting-an-environment-variable-before-a-command-in-bash-not-working-for-second)
+ 
